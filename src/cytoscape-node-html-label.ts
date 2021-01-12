@@ -16,6 +16,7 @@ interface CytoscapeNodeHtmlParams {
 
 interface CytoscapeContainerParams {
   enablePointerEvents?: boolean;
+  containerId?: string;
 }
 
 (function () {
@@ -265,8 +266,14 @@ interface CytoscapeContainerParams {
       if (options && options.enablePointerEvents !== true) {
         stl['pointer-events'] = 'none';
       }
-
-      _cyCanvas.parentNode.appendChild(_titlesContainer);
+      if (options && options.containerId) {
+        _cyCanvas.parentNode.appendChild(_titlesContainer);
+      } else if (options.containerId) {
+        let container = document.getElementById(options.containerId);
+        if (container) {
+          container.appendChild(_titlesContainer);
+        }
+      }
 
       return new LabelContainer(_titlesContainer);
     }
