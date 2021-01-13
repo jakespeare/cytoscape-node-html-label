@@ -268,7 +268,7 @@ interface CytoscapeContainerParams {
       }
       if (options && options.containerId) {
         let container = document.getElementById(options.containerId);
-        if (container) {
+        if (container != null) {
           container.appendChild(_titlesContainer);
         }
       } else {
