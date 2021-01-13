@@ -267,12 +267,12 @@ interface CytoscapeContainerParams {
         stl['pointer-events'] = 'none';
       }
       if (options && options.containerId) {
-        _cyCanvas.parentNode.appendChild(_titlesContainer);
-      } else if (options.containerId) {
         let container = document.getElementById(options.containerId);
         if (container) {
           container.appendChild(_titlesContainer);
         }
+      } else {
+        _cyCanvas.parentNode.appendChild(_titlesContainer);
       }
 
       return new LabelContainer(_titlesContainer);
