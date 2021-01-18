@@ -167,11 +167,19 @@
             stl.padding = '0px';
             stl.border = '0px';
             stl.outline = '0px';
-            stl.outline = '0px';
+
             if (options && options.enablePointerEvents !== true) {
                 stl['pointer-events'] = 'none';
             }
-            _cyCanvas.parentNode.appendChild(_titlesContainer);
+            if (options && options.containerId) {
+                let container = document.getElementById(options.containerId);
+                if (container != null) {
+                    container.appendChild(_titlesContainer);
+                }
+            } else {
+                _cyCanvas.parentNode.appendChild(_titlesContainer);
+            }
+
             return new LabelContainer(_titlesContainer);
         }
         function createNodesCyHandler(_a) {

@@ -14,4 +14,5 @@ interface CytoscapeNodeHtmlParams {
 }
 interface CytoscapeContainerParams {
     enablePointerEvents?: boolean;
+    containerId?: string;
 }
